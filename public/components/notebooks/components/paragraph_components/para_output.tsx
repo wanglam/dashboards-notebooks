@@ -16,6 +16,7 @@ import {
 import { ParaType } from '../../../../../common/types/notebooks';
 import { uiSettingsService } from '../../../../../common/utils';
 import { DeepResearchContainer } from '../../../../components/custom_panels/panel_modules/deep_research_container';
+import { SOPContainer } from '../../../../components/custom_panels/panel_modules/sop_container';
 import PPLService from '../../../../services/requests/ppl';
 import { QueryDataGridMemo } from './para_query_grid';
 
@@ -144,7 +145,9 @@ const OutputBody = ({
       case 'IMG':
         return <img alt="" src={'data:image/gif;base64,' + val} key={key} />;
       case 'DEEP_RESEARCH':
-        return <DeepResearchContainer http={http} para={para} onTaskFinish={() => {}} />;
+        return <DeepResearchContainer http={http} para={para} />;
+      case 'SOP':
+        return <SOPContainer http={http} para={para} />;
       default:
         return <pre key={key}>{val}</pre>;
     }
